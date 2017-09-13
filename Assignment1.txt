@@ -1,0 +1,482 @@
+1. Hiking
+ 1.1. Rent a ReachNow to drive to mountain rainier on weekends with friends
+ 1.2. On the way, fill the gas
+ 1.3. On the way, eat at restaurant for lunch
+ 1.4. Buy the ticket to get into the park
+ 1.5. Book a hotel or check in the hotel.
+
+Things：
+Car
+	data: Brand, price, color, capacity, gas, speed, mileage
+	behavior: Run, stop, brake 
+People	
+	data: person[] friends, name, sex, age: groupOfPeople 
+	behavior: getTogether, drive, fillGas, eat, payMoney, buyTicket, hiking, bookHotel
+GasStation
+	data: Name, Address, gas
+Gas
+	data: Price, category, tax
+CreditCard
+	data: Number, name, company, expiry, security code
+CreditCardCompany
+	data: name, phoneNumber
+	behavior: authorizeTransaction
+Restaurant
+	data: Name, Address, phoneNumber
+Lunch
+	data: dishes[] dishes, price, tip, tax
+Park
+	data: Name, Address, plants, mountain
+Ticket
+	data: price， time, tax, howManyToBuy
+Hotel
+	data: Name, Address, rank, reviews, phoneNumber
+Phone
+	data: Number, color, brand, operator, network
+Mobile app
+	data: hotel[] hotels, BankAccount
+	behavior: search, sort, display, compare, placeTheOrder,
+
+Sequence of Flow
+	Car car,
+	person[] friends = {Peter, Mary, Tom, Hellen} ,
+	GasStation Shell,
+	Gas gas,
+	CreditCard card,
+	CreditCarCompany visa,
+	Restaurant 
+	Lunch lunch
+	Park mountain rainier
+	Ticket ticket
+	Hotel hotel
+	Phone iphone
+	Internet internet
+	MobileApp booking
+	
+1.1 rent a ReachNow
+	if friends.decidedToGoToParkOnWeekends
+		if ReachNow is available			
+			peter.searchACarOnReachNow-> network, priceRange, color, brand, capacity : Collection of cars
+			peter.selectADesirableCar-> creditCard, address: OrderConfirmation
+		else
+			peter.browseReachNowAfterAWhileBack
+		end
+	end
+
+1.2+1.3 Drive to the park, fill the gas and have a lunch
+	If car.isReady && friends.getTogher
+		friends.getInCar	
+		Loop	
+			peter.driveToPark-> speed, mileage: car
+			if car.needToBeFilledWithGas
+				car.runToGasStation->Shell, address, gas	
+				gas.getFilled->price, category, tax: full gas
+				Peter.payMoney->creditCard: receipt
+			end
+			if time.isForLunch or friends.areHungry
+				car.runToARestaurant-> name, address, phoneNumber
+				friends.haveLunch-> dishes, price, tip, tax
+				peter.payMoney->creditCard: receipt
+			end
+			if car.arriveAtPark->name, address
+				break
+			end
+		End
+	Else
+		friends.cantGo
+	end
+
+1.4 Buy the ticket to get into the park
+	peter.buyTickets->numberOfFriends, price, tax, time, creditCard: tickets
+	friends.getIntoPark->tickets, plants, mountain, views
+	friends.goHiking->mountain rainier, toolsForHiking
+
+1.5 Book a hotel and check in 
+	booking = mobileApp
+	peter.searchHotelInBooking->phone, network, requirement: collection of Hotels
+	Loop
+		if peter.findNoPages
+			break
+		end
+		peter.findDesirableHotelInAPage-> booking, phone, network, requirement, pageNumber: hotel
+		Hilton = hotel
+		if Hilton.isAvailable
+			Peter.placeTheOrder-> price, tax, address, phoneNumber, creditCard: orderConfirmation
+		else
+			pageNumber = pageNumber + 1;
+		end
+	End
+	car.runToTheHotel-> name, address, phoneNumber
+	friends.checkIn-> roomNumber, roomCard
+
+
+
+2. Organize a career fair(Suppose you are the organizer)
+2.1 organizers discuss, make a dicesion and do some planning，e.g.：date, timetable, place, how many companies to invite considering the capacity of the place
+2.2 invite companies and get response
+2.3 email all students
+2.4 students submit their resumes and have interviews 
+
+Things：
+Internet
+	Data: Amazon, BestBuy, Alibaba, Google, linkedIn: Group of Websites (Collection of Websites)
+	Behaviors: searchForElectronicWebsites 
+Organizer
+	Data: Organizer[] organizers, name, sex, age, email: groupOfPeople 
+	Behaviors: plan, discuss, decide, arrangeWork, invite, coordinate, lookForVolunteers
+Place:
+	Data: place[] places, availableTime, address, capacity
+career fair
+	Data: date, address, timetable, companies
+ 	Behaviors: open, close
+company
+	Data: company[] companies, name, address, phoneNumber, industry, jobOpportunities
+	Behaviors: collectResumes, compareResumes, interview, hire
+Student
+	Data: student[] students, name, sex, age: groupOfPeople 
+	Behaviors: checkEmail, dicideToAttendOrNot, attendCareerFair, submitResume, haveInterview
+resume
+	Data: name, major, gpa, experience, skills
+interview
+	Data: self-introduce, skill test, conversation
+
+Sequence of Flow
+	Organizer[] organizers = {Peter, Mary, Tom, Hellen} 
+	Internet internet
+	CareerFair careerFair
+	student[] students
+	company[] companies
+	interview interview
+2.1 organizers discuss, make a decision and do some planning
+	if internet.isAvailable
+		Peter.searchInternet-> internet, question : Collection of ElectronicWebsite
+		pageNumber = 1
+		Loop
+			peter.findDesirableWebsiteInAPage -> internet, question, page Number : website
+			rent = website
+			If rent is not empty or rent !=null
+				break
+			else
+				pageNumber = pageNumber + 1
+			end
+		End
+		Peter.findDesirablePlaces-> website, network, requirement, page Number : Collection of Places
+		if place.isAvailable
+			Peter.addToListOfPlaces
+		end
+
+		Loop
+			peter.findDesirableWebsiteInAPage -> internet, question, page Number : website
+			linkedIn = website
+			If linkedIn is not empty or linkedIn!=null
+				break
+			else
+				pageNumber = pageNumber + 1
+			end
+		End	
+		Peter.findDesirableCompanies-> network, requirement, page Number : Collection of Companies
+		if companies.meetTheRequirement
+			Peter.addToListOfCompanies	
+		end
+	else
+		Peter.browseInternetAfterAWhileBack
+	organizers.discuss->  ListOfPlaces, ListOfCompanies, availableTime, address, capacity
+	organizers.makeADecision-> date, address, timetable, companies :career fair
+	
+2.2 invite companies and get response
+	peter.callCompanies-> date, address, timetable, companies :career fair
+	if companies.areNotInterested 
+		break
+	end
+	if companies.sayYes
+		organizers.getResponse
+		organizers.sendOfficialInvitation-> date, address, timetable, contactNumber :career fair
+	end
+			
+2.3 email all students	
+	if internet.isAvailable
+		Peter.loginSchoolEmailAccount-> account, password
+		peter.sendEmailsToAllStudent->date, address, timetable, companies :career fair
+		if peter.getInquiryFromStudents
+			Peter.answerTheQuestions
+		end
+	Else
+		peter.browseInternetAfterAWhileBack
+	End	
+
+2.4 students submit their resumes and have interviews 
+	if students.haveDesirableJobOppotunities
+		Loop
+			students.submitResume-> name, major, gpa, experience, skills: resume
+			companies.valueResume
+			if companies.areInterested
+				companies.HaveAnInterviewWithStudent-> self-introduce, skill test, conversation: interview
+				if students.passTheInterview
+					students.getOffer
+				end
+			end
+		else
+			students.submitResumeToAnotherCompany	
+		end
+	else
+		students.mayComeToAnotherCareerFair
+	end
+
+
+
+3. Order Pizza from Pizza Hut
+3.1 open the Pizza Hut website
+3.2 Create an account or sign in
+3.3 check the menu and choose what to order
+3.4 place the order and pay the money
+
+Things
+	Consumer (Internet Shopper) :
+		Data: Name, Address, Phone, email
+		Behaviors : buy, search, reviews, compare, return, cancel
+	
+	Internet
+		Data : Amazon, BestBuy, Alibaba, Google, linkedIn: Group of Websites (Collection of Websites)
+		Behaviors : searchForElectronicWebsites 
+	
+	Laptop
+		Data : Price, Color, Memory, size, brand, year
+		Behavior:
+	
+	ElectronicWebsite
+		Data : URL, Product[] products, BankAccount
+		Behaviors : search, sort, display, compare , placeTheOrder
+
+	CreditCard
+		Data : Number, name, company, expiry, security code
+		Behavior : 
+		
+	CreditCardCompany
+		Behavior : authorizeTransaction
+
+Sequence of Flow
+	Consumer Peter
+	Internet internet
+	Laptop laptop
+	ElectronicWebsite pizzaHut,
+	CreditCard card,
+	CreditCarCompany visa
+	ShoppingConfirmation response 
+
+3.1 open the Pizza Hut website
+	If Internet.isAvailable
+		peter.searchInInternet -> internet, question : Collection of ElectronicWebsite
+		pageNumber = 1;
+		Loop
+			if peter.findsNoPages
+				break
+			end
+			peter.findDesirableWebsiteInAPage -> internet, question, page Number : website
+			pizzaHut = website;
+			If pizzaHut is not empty
+				break
+			else
+				pageNumber = pageNumber + 1
+			end
+		End
+		pizzaHut = website
+	Else
+		peter.browseInternetAfterAWhileBack
+3.2 Create an account or sign in		
+	If pizzaHut is not empty or pizzaHut!=null
+		if Peter is new to PizzaHut
+			Peter.createAnAccount-> Name, Address, Phone, email, password: account 
+		end
+		Peter.signIn-> email, password
+	Else
+		peter.cantBuyPizza
+	end	
+3.3 check the menu and choose what to order
+	if menu is available
+		Peter.checkTheMenu
+	else
+		PizzaHut.searchForPizza -> priceRange, flavor, filling : Collection of Pizza
+	end
+3.4 place the order and pay the money
+	Peter.addToCart->pizza, drink ,sides, wings
+	peter.purchasePizza -> creditCard, address, PizzaHut : OrderConfirmation
+	response = OrderConfirmation
+
+
+4. Design a code sharing platform (eg: Github).
+4.1 Create a repository
+4.2 Create a Branch
+4.3 Make and commit changes
+4.4 Open a Pull Request
+4.5 Merge your Pull Request
+
+Things
+CodeSharingPlatform
+	data: code, account, repo, url, 
+	behavior: search, sort, display, save, delete, authorize, connect with database
+User
+	data: account, password, 
+	behavior: createAccount, createRepo, createBranch, edit, pullInUpdates, 
+Account
+	data: name, email, password, sex, alias, phone
+	behavior: modify 
+Repo
+	data: name, description, folders, files, images, videos, spreadsheets, data sets
+	behavior: connect, delete, change, save 
+Branch 
+	data: name, 
+	behavior: merge into other branches
+
+Sequence of Flow
+	codeSharingPlatform github
+	User user
+	Account account
+	Repository repo
+	
+4.1 Create a repository
+	If user is new to Github
+		user.createAccount->name, email, password, sex, alias, phone: account
+		github.authorizeAccount ->
+	end
+	user.signIn->account, password
+	if user want to create a new repo
+		user.click+
+		user.selectNewRepo
+		user.nameRepo
+		user.writeAShortDesc
+	end
+	github.connectWithDatabase-> new repo
+
+4.2 create a branch
+	if user want to create a new branch
+		user.openTheRepo-> name, description, folders, files, images, videos, spreadsheets, data sets: repo
+		user.clickBranchMaster
+		user.nameBranch
+		user.select the create branch box or hit “enter” on keyboard
+	end
+	else
+		user.doesntNeedToDo
+
+4.3 Make and commit changes
+	if user want to make change
+		user.clickFile-> repo
+		user.openEditor
+		user.edit
+		if user has made a change
+			user.writeCommitMessage
+		end
+		user.clickCommitChangesButton
+	end
+	else
+		user.doesntNeedToDo
+		
+4.4 Open and merge a Pull Request
+	if user has made a change
+		user.clickPullRequestTab 
+		user.clickNewPullRequest
+		user.selectTheBranch
+		user.lookOverChanges
+		if changes are Correct
+			user.givePullRequestATitle
+			user.wirteADescriptionOfChanges -> description
+			user.Pull Request
+			github.confirmTheAction
+			user. mergePullRequest
+		end	
+		if user has mergedPullRequest
+			user.deleteTheBranch
+			github.connectWithDatabase-> branch
+		end
+	end
+	else
+		user.doesntNeedToDo
+
+
+
+5. Design a soft-drink/snacks vending machine.
+5.1 user select products ,e.g.: Coke, Pepsi, Soda, Sprite
+5.2 user pay the money and vending machine accepts coins of 1,5,10,25 Cents, e.g. penny, nickel, dime, and quarter.
+5.3 user canceling the request and vending machine refund .
+5.4 vending machine returns selected product and remaining change if any
+5.5 vending machine throws sold out exceptions 
+
+Things
+Vending machine
+	data: product[] products, coins, exception[] exceptions
+	behavior: accept order, accept money, refund, return products, return change, throw exceptions
+User
+	data: money 
+	behavior: select, pay
+Product
+	data: price, number
+	behavior:
+Exceptions
+	data: 
+	behavior:
+Coins:
+	data: 1 cent, 5 cents, 10 cents, 25 cents
+
+Sequence of Flow
+	Vending machine vendingMachine
+	User user
+	product[] product = {Coke, Pepsi, Soda, Sprite}
+	coins[] coins = { 1,5,10,25 } 
+
+	5.1 user select products ,e.g.: Coke, Pepsi, Soda, Sprite
+		if vendingMachine has products and user.hasDesirableProduct and user has enough money
+			user.selectProducts->Coke, Pepsi, Soda, Sprite: collection of product
+		end	
+		else	
+			user.cantBuyProducts
+		end
+
+	5.2 user pay the money and vending machine accepts coins of 1,5,10,25 Cents, e.g. penny, nickel, dime, and quarter.
+		if user has placed the order
+			vendingMachine.acceptOrder	
+			Loop 
+				user.payMoney-> 1,5,10,25 Cents: collection of coins
+				vendingMachine.acceptMoney-> 1,5,10,25 Cents: collection of coins
+				if user has paid enough money
+					vendingMachine.confirmTheOrder
+				end
+				else
+					vendingMachine.throwsNotFullPaidException
+				end
+			end
+		end
+
+	5.3 user canceling the request and vending machine refund .
+		if user wants to cancel the request
+			user.pressCancelButton
+			vendingMachine.acceptCommand
+			vendingMachine.fullRefund->1,5,10,25 Cents: collection of coins
+		end
+
+	5.4 vending machine returns selected product and remaining change if any
+		vendingMachine.returnSelectedProduct->Coke, Pepsi, Soda, Sprite: collection of product
+		if vendingMachine has to return change 
+			vendingMachine.countHowMuchToRefund
+			if vendingMachine has enough change
+				vendingMachine.returnRemainingChange->1,5,10,25 Cents: collection of coins
+			end
+			else
+				vendingMachine.throwsNotSufficientChangeException
+				vendingMachine.fullRefund
+				user.changeProduct or user.cantBuyProduct
+				break
+			end
+		end
+		user.getProduct
+
+	5.5 vending machine throws sold out exceptions 
+		if some products have sold out
+			vendingMachine.throwsSoldOutException->Coke, Pepsi, Soda, Sprite: collection of product
+			supplier.catchTheException
+			supplier. replenishProducts
+		end			
+
+
+
+
+
+
