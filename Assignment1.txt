@@ -1,6 +1,5 @@
 /* Good Work
- * Score 9.5
- * In pseudo code you are using 'Loop' with no conditions.
+ * Score 10
  * Your undersstading on data and behaviors is good.
  */
  
