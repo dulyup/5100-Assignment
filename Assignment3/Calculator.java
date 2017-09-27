@@ -83,7 +83,7 @@ public class Calculator {
 		for (double e : d) {
 			System.out.println(e);
 		}
-		System.out.println(c.FahrenheitToCelsius(41.2345));
+		System.out.println(c.FahrenheitToCelsius(41.23));
 
 	}
 }
