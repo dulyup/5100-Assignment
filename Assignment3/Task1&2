@@ -1,0 +1,66 @@
+1. 
+public class Book {
+	int size;
+	int price;
+	String name;
+
+	public Book(int size) {
+		this.size = size;
+	}
+
+	public Book(int size, int price, String name) {
+		super();
+		this.size = size;
+		this.price = price;
+		this.name = name;
+	}
+
+	public Book(int price) {
+		this.price = price;
+	}
+
+	public setName(String name){
+            return name;
+ }
+
+}
+
+Solution:
+Error as following:
+1) duplicate methods: Book(int size),Book(int price).Since their method names, the type and number of parameter are all the same.
+2) There’s no default constructor which has no parameter:
+    public Book() {
+        super();
+    } 
+3) for method: public setName(String name). 
+    a)If it’s a set method, it should not return something.Also it lacks “void”.Change to: 	
+	public void setName(String name) {
+		this.name = name;
+	}
+    b)If it’s a get method, it should have a return type and the function’s name should be getName.Change to:
+	public String getName() {
+		return name;
+	}
+
+
+
+
+2.
+public class Clock {
+	String time;
+
+	void getTime() {
+		return time;
+	}
+
+	void setTime(String t) {
+		time = t;
+	}
+}
+
+
+Solution:
+Error as following:
+1）for the getTime() function, the return type should not be void but String.
+2）There’s no access modifiers.The data members, class or methods which are not declared using any access modifiers,having default access modifier are accessible only within the same package.
+3) Lacking of constructors may be inconvenient to create objects later.
