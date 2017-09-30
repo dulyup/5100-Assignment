@@ -1,3 +1,4 @@
+// score 2 + extra credit 1
 package com.javaClass;
 
 import java.math.BigDecimal;
