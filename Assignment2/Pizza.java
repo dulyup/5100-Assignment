@@ -1,3 +1,6 @@
+// score 2 + extra credit 0.5
+// super is not required for base classes like these. The usage of super just refers to the Object class which is the base class for all classes.
+
 package com.javaClass;
 
 import java.math.BigDecimal;
