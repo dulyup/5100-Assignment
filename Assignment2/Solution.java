@@ -1,3 +1,7 @@
+/* good work
+ * score 10 + extra credit 3.5; Total score =10
+ */
+
 package com.javaClass;
 
 import java.util.ArrayList;
@@ -12,6 +16,8 @@ public class Solution {
 	 * paid at a rate of 15.0, then the next 5 hours are paid at a rate of 15 *
 	 * 1.5. Hours after that up to a max of 48 are paid at a rate of 15 * 2.
 	 */
+	
+	// score 2
 
 	final double BASESALARY = 15;
 	final List<Double> RATE = new ArrayList<Double>() {
@@ -64,6 +70,7 @@ public class Solution {
 	 * sum of digits. ii. for example input = 37, sum = 3+7 = 10, sum = 1+0 = 1.
 	 * result = 1.
 	 */
+	// score 2
 	public int addDigits(int input) {
 
 		if (input >= 0 && input < 10) {
@@ -86,6 +93,7 @@ public class Solution {
 	 * Proper divisors of 6 are 1, 2, 3. Sum of its proper divisors = 1 + 2 + 3=
 	 * 6.
 	 */
+	// score 2
 	public boolean checkPerfectNumber(int num) {
 		if (num == 1)
 			return false;
@@ -113,6 +121,7 @@ public class Solution {
 	 * integer. Other than the edges the inner part of the triangle should be
 	 * empty. ii. For example input is 6. the function should print—
 	 */
+	// extra credit 2
 	public void printIsoscelesTriangle(int n) {
 
 		for (int i = 0; i < n; i++) {
