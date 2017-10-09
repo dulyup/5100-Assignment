@@ -1,8 +1,11 @@
+/* Good Work
+ * Score 10 + extra credit 2; Total Score 10
+ */
 package com.Assign3;
 
 import java.text.DecimalFormat;
 
-public class Calculator {
+public class Calculator { // score 4 + extra credit 2
 
 	public double addition(double num1, double num2) {
 		return num1 + num2;
@@ -52,7 +55,7 @@ public class Calculator {
 
 	public double[] quadraticEquation(double A, double B, double C) {
 		double[] results = null;
-		if (A == 0) {
+		if (A == 0) { // you have to return single root if A is 0
 			System.out.println("This is not quadratic equatio");
 			return null;
 		}
