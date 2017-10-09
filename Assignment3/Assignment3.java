@@ -1,3 +1,4 @@
+// score 4
 package com.Assign3;
 
 import java.util.Arrays;
@@ -6,7 +7,7 @@ import java.util.Set;
 
 public class Assignment3 {
 	// 3.remove vowels in a string
-	public String removeVowelsFromString(String input) {
+	public String removeVowelsFromString(String input) { // score 2
 		StringBuilder result = new StringBuilder();
 		Set<Character> vowels = new HashSet<Character>();
 		vowels.add('a');
@@ -30,7 +31,7 @@ public class Assignment3 {
 
 	// 4.check if two strings are Anagrams or not (1.two same strings are
 	// anagrams 2.consider lowercase and capital)
-	public boolean checkIfTwoStringsAreAnagrams(String s1, String s2) {
+	public boolean checkIfTwoStringsAreAnagrams(String s1, String s2) { // score 2
 		if (s1.length() != s2.length())
 			return false;
 		// ->array->sort->string->equal
