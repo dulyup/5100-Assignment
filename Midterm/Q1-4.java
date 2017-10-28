@@ -9,7 +9,7 @@ public class Midterm {
      * @param nums original array
      * @return an array that even indices are in reverse order and odd indices stay in the same position
      */
-    public int[] reverseEvenIndices(int[] nums) {
+    public int[] reverseEvenIndices(int[] nums) { // score 6
 
         if (nums == null || nums.length == 0) {
             return null;
@@ -46,7 +46,7 @@ public class Midterm {
      * @param n
      * @return
      */
-    public int arrangeCoins(int n) {
+    public int arrangeCoins(int n) { // score 7
         return (int) ((Math.sqrt(8 * n + 1) - 1) / 2);
     }
 
@@ -59,7 +59,7 @@ public class Midterm {
      * @param nums
      * @return
      */
-    public int minMoves(int[] nums) {
+    public int minMoves(int[] nums) { // score 7
         if (nums == null || nums.length == 0 || nums.length == 1) {
             return 0;
         }
@@ -83,7 +83,7 @@ public class Midterm {
      * @param x summation of each face of m dices,
      * @return number of possible ways to acquire sum as x
      */
-    public int countNumberOfPossibleWays(int m, int n, int x) {
+    public int countNumberOfPossibleWays(int m, int n, int x) { // score 7
         if (n <= 0) {
             return 0;
         }
