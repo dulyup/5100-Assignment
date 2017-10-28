@@ -83,7 +83,7 @@ public class Midterm {
      * @param x summation of each face of m dices,
      * @return number of possible ways to acquire sum as x
      */
-    public int countNumberOfPossibleWays(int m, int n, int x) { // score 7
+    public int countNumberOfPossibleWays(int m, int n, int x) { // score 10
         if (n <= 0) {
             return 0;
         }
