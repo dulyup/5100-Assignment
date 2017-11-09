@@ -2,7 +2,7 @@ package com.assign4;
 
 public class Assign4 {
     // 1.Format a license key
-    public String format(String S, int K) {
+    public String format(String S, int K) { // score 2
         StringBuilder sb = new StringBuilder();
         char[] chars = S.toCharArray();
         int length = 0;
@@ -25,7 +25,7 @@ public class Assign4 {
     }
 
     //5.Int into Roman
-    public String intToRoman(int num) {
+    public String intToRoman(int num) { // score 2
         String M[] = {"", "M", "MM", "MMM"};
         String C[] = {"", "C", "CC", "CCC", "CD", "D", "DC", "DCC", "DCCC", "CM"};
         String X[] = {"", "X", "XX", "XXX", "XL", "L", "LX", "LXX", "LXXX", "XC"};
@@ -34,7 +34,7 @@ public class Assign4 {
     }
 
     //Extra：Find the median of the two sorted array
-    public double findMedianSortedArrays(int[] nums1, int[] nums2) {
+    public double findMedianSortedArrays(int[] nums1, int[] nums2) { // extra credit 2
 
         if ((nums1 == null || nums1.length == 0) && (nums2 == null || nums2.length == 0))
             return -1;
