@@ -1,6 +1,6 @@
 package com.assign4;
 
-import java.util.ArrayList;
+import java.util.ArrayList; // score 2
 
 public class IpAddress {
     private String dottedDecimal;
