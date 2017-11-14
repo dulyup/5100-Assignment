@@ -2,7 +2,7 @@ package com.assign5;
 
 public class Sundae extends IceCream {
 
-    String toppingName;
+    String toppingName; // access should be private
     int toppingCost;
 
 
