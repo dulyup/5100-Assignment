@@ -3,7 +3,7 @@ package com.assign5;
 import java.util.Vector;
 
 public class Checkout {
-    private int totalCost;
+    private int totalCost; // these variable should not be declared in class level, use totalCost() method where ever required
     private Vector<DessertItem> dessertItems;
 
     //vector of dessertItems
