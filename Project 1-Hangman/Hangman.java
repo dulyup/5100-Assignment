@@ -1,3 +1,7 @@
+/* Good Work
+ * Score 18
+ * Few letters are not disclosed even after correctly guessed, not handling the case where user enters previously guessed letters
+ */
 package com.project1;
 
 import java.util.ArrayList;
