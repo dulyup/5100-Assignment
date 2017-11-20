@@ -16,7 +16,6 @@ public class LyricAnalyzer {
      * @param file
      */
     public void read(File file) throws IOException {
-//        StringBuilder sb = new StringBuilder();
         FileReader reader = new FileReader(file);
         BufferedReader br = new BufferedReader(reader);
         int count = 1;
