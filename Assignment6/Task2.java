@@ -5,7 +5,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.RandomAccessFile;
 
-public class Task2 {
+public class Task2 { // score 1
 
     public static void parse(File file) {
         RandomAccessFile input = null;
