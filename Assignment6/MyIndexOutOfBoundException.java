@@ -1,6 +1,6 @@
 package com.assign6;
 
-public class MyIndexOutOfBoundException extends Exception {
+public class MyIndexOutOfBoundException extends Exception { // score 2
 
     /**
      * lowerBound- the lowest legal index value.
