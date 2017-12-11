@@ -1,3 +1,7 @@
+/* Good work
+ * Score 9 + extra credit 2; Total score 10
+ * Unit tests for ATM are missing
+ */
 package com.assign6;
 
 import java.io.*;
