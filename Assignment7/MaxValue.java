@@ -1,6 +1,6 @@
 package com.assign7;
 
-class MaxValueThread extends Thread {
+class MaxValueThread extends Thread { // score 2
     private int num;
     private int[] arr;
     private int max = Integer.MIN_VALUE;
