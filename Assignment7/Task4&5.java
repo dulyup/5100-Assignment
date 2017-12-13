@@ -1,3 +1,6 @@
+/* GOod Work
+ * Score 10 + extra credit 2; Total score 10
+ */
 package com.assign7;
 
 public class Assign7 {
