@@ -1,3 +1,6 @@
+/* Good Work
+ * Total score 10
+ */
 package com.assign8;
 
 import java.io.*;
