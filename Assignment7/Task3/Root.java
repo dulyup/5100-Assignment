@@ -1,6 +1,6 @@
 package com.assign7;
 
-public class Root {
+public class Root { // score 2
 
     public static void main(String[] args) {
 
