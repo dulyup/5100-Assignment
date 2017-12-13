@@ -1,6 +1,6 @@
 package com.assign7;
 
-public class ReverseHello extends Thread {
+public class ReverseHello extends Thread { // score 2
 
     private static final int FIRST_THREAD = 1;
     private static final int MAX_THREAD = 50;
